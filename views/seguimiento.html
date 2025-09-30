@@ -1,0 +1,23 @@
+<h2>Seguimiento de Paquete</h2>
+
+<div class="mb-3">
+  <input type="text" class="form-control" ng-model="idBusqueda" placeholder="Ingrese número de seguimiento">
+  <button class="btn btn-info mt-2" ng-click="buscar()">Buscar</button>
+</div>
+
+<div ng-if="paquete" class="mt-4">
+  <h4>Detalles del paquete</h4>
+  <p><strong>Estado actual:</strong> {{paquete.estado}}</p>
+  <p><strong>Última actualización:</strong> {{paquete.historial[paquete.historial.length - 1].fecha | date:'dd/MM/yyyy HH:mm'}}</p>
+
+  <h5>Historial de actualizaciones</h5>
+  <div ng-repeat="item in paquete.historial | orderBy:'fecha'" class="card mb-2 p-2">
+    <p><strong>{{item.fecha | date:'dd/MM/yyyy HH:mm'}}</strong></p>
+    <p><em>{{item.comentario}}</em></p>
+    <p><small>Responsable: {{item.responsable}}</small></p>
+  </div>
+</div>
+
+<div ng-if="mensajeError" class="alert alert-danger mt-3">
+  {{mensajeError}}
+</div>

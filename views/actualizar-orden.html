@@ -1,0 +1,41 @@
+<h2>Actualizar Estado de Orden</h2>
+
+<div class="mb-3">
+  <label>Ingrese número de paquete</label>
+  <input type="text" class="form-control" ng-model="idBusqueda" placeholder="ID de 12 caracteres">
+  <button class="btn btn-primary mt-2" ng-click="buscarOrden()">Buscar</button>
+</div>
+
+<div ng-if="ordenEncontrada" class="card mt-3 p-3">
+  <p><strong>Nombre:</strong> {{ordenEncontrada.nombre}}</p>
+  <p><strong>Entregar en:</strong> {{ordenEncontrada.direccion}}</p>
+  <p><strong>Estado actual:</strong> {{ordenEncontrada.estado}}</p>
+
+  <form name="formActualizar" ng-submit="actualizar()" class="mt-3">
+    <div class="mb-3">
+      <label>Nuevo estado</label>
+      <select class="form-control" ng-model="actualizacion.estado" required>
+        <option value="">-- Seleccione --</option>
+        <option ng-repeat="estado in estadosValidos" value="{{estado}}">{{estado}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Comentario (20-40 caracteres)</label>
+      <input type="text" class="form-control" ng-model="actualizacion.comentario"
+             ng-minlength="20" ng-maxlength="40" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Responsable (solo letras)</label>
+      <input type="text" class="form-control" ng-model="actualizacion.responsable"
+             ng-pattern="/^[a-zA-Z\sáéíóúÁÉÍÓÚñÑ]+$/" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+  </form>
+</div>
+
+<div ng-if="mensaje" class="alert" ng-class="{'alert-success': exito, 'alert-danger': !exito} mt-3">
+  {{mensaje}}
+</div>

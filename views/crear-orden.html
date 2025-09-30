@@ -1,0 +1,52 @@
+<h2>Crear Nueva Orden</h2>
+<form name="formCrear" ng-submit="crear()" novalidate>
+  <!-- Nombre -->
+  <div class="mb-3">
+    <label class="form-label">Nombre completo (solo letras)</label>
+    <input type="text" class="form-control" ng-model="orden.nombre" 
+           ng-pattern="/^[a-zA-Z\sáéíóúÁÉÍÓÚñÑ]+$/" required minlength="3">
+    <div ng-show="formCrear.$submitted || formCrear.nombre.$touched">
+      <span ng-show="formCrear.nombre.$error.required" class="text-danger">Campo obligatorio</span>
+      <span ng-show="formCrear.nombre.$error.pattern" class="text-danger">Solo letras y espacios</span>
+    </div>
+  </div>
+
+  <!-- Dirección -->
+  <div class="mb-3">
+    <label class="form-label">Dirección de entrega</label>
+    <textarea class="form-control" ng-model="orden.direccion" required minlength="10"></textarea>
+    <div ng-show="formCrear.$submitted || formCrear.direccion.$touched">
+      <span ng-show="formCrear.direccion.$error.required" class="text-danger">Dirección obligatoria</span>
+    </div>
+  </div>
+
+  <!-- Correo -->
+  <div class="mb-3">
+    <label class="form-label">Correo electrónico (Gmail o Outlook)</label>
+    <input type="email" class="form-control" ng-model="orden.email" required
+           ng-pattern="/^[a-zA-Z0-9._%+-]+@(gmail\.com|outlook\.com)$/">
+    <div ng-show="formCrear.$submitted || formCrear.email.$touched">
+      <span ng-show="formCrear.email.$error.required" class="text-danger">Correo obligatorio</span>
+      <span ng-show="formCrear.email.$error.pattern" class="text-danger">Solo Gmail o Outlook</span>
+    </div>
+  </div>
+
+  <!-- Descripción -->
+  <div class="mb-3">
+    <label class="form-label">Descripción (40-120 caracteres)</label>
+    <textarea class="form-control" ng-model="orden.descripcion" 
+              ng-minlength="40" ng-maxlength="120" required></textarea>
+    <div ng-show="formCrear.$submitted || formCrear.descripcion.$touched">
+      <span ng-show="formCrear.descripcion.$error.minlength || formCrear.descripcion.$error.maxlength" class="text-danger">
+        Entre 40 y 120 caracteres
+      </span>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Crear Orden</button>
+</form>
+
+<!-- Mensaje de éxito -->
+<div ng-if="mensajeExito" class="alert alert-success mt-3">
+  ¡Orden creada! Número de seguimiento: <strong>{{mensajeExito}}</strong>
+</div>
