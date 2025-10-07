@@ -4,30 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paquetería - AngularJS</title>
-  <!-- Bootstrap 5 (opcional pero recomendado) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="#">Paquetería MC</a>
-      <div class="navbar-nav">
-        <a class="nav-link" href="#!/crear">Crear Orden</a>
-        <a class="nav-link" href="#!/actualizar">Actualizar</a>
-        <a class="nav-link" href="#!/seguimiento">Seguimiento</a>
-      </div>
+<nav class="app-bar bg-dark fg-white" data-role="appbar">
+  <div class="container">
+    <a class="app-bar-brand" href="#">📦 Paquetería UMA</a>
+    <br>
+    <div class="app-bar-menu">
+      <ul class="app-bar-menu ml-auto">
+        <li>
+          <a href="#!/crear"><span class="mif-plus-circle mif-lg"></span> Crear Orden</a>
+        </li>
+        <li>
+          <a href="#!/actualizar"><span class="mif-repeat mif-lg"></span> Actualizar</a>
+        </li>
+        <li>
+          <a href="#!/seguimiento"><span class="mif-search mif-lg"></span> Seguimiento</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <div class="container mt-4">
     <div ng-view></div>
   </div>
 
-  <!-- AngularJS y tus scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+
+  <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/services/ordenesService.js"></script>

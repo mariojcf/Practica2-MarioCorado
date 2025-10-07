@@ -1,8 +1,67 @@
-@media (max-width: 767px) {
-  .container {
+.app-bar {
+    background-color: #28a745 !important; /* Verde principal */
+    border-bottom: 3px solid #218838;
+}
+
+/* Estilos para el título de la marca (.app-bar-brand) y los enlaces de navegación (ul > li > a) */
+.app-bar-brand,
+.app-bar-menu ul li a {
+    /* El color negro es el predeterminado para el texto de la marca y los enlaces en este esquema */
+    color: black !important;
+    font-weight: 600;
+}
+
+/* Estilos al pasar el ratón sobre los enlaces de navegación */
+.app-bar-menu ul li a:hover {
+    color: #e9ecef !important; /* Color claro para el hover */
+}
+
+/* Estilos para los campos de entrada de formularios (input, select, textarea) */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     padding: 10px;
-  }
-  .navbar-nav {
-    flex-direction: column;
-  }
+    font-size: 16px;
+}
+
+/* Estilos para las etiquetas (labels) */
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Estilos para el contenedor principal de la página */
+.container {
+    /* Metro 4 ya usa 'container', lo estamos mejorando */
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    
+    /* MODIFICACIÓN CLAVE: Esto crea el espacio debajo de la barra de navegación */
+    margin-top: 20px;
+}
+
+/* Estilos para los botones de éxito (clase 'success' en Metro 4) */
+.button.success {
+    /* Gradiente para mantener el estilo original */
+    background: linear-gradient(135deg, #28a745, #218838); 
+    border: none;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: white; /* Asegura que el texto del botón sea legible */
+}
+
+.button.success:hover {
+    /* Oscurecer el color para el efecto hover */
+    background: #218838;
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.5); /* Sombra más pronunciada */
+    transform: translateY(-2px);
 }
