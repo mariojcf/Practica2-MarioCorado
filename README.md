@@ -15,7 +15,7 @@ Aplicación de paquetería para la cualquier empresa.
 
 ## Tecnologías
 - AngularJS 1.8
-- Bootstrap 5
+- Metro 4
 - HTML5 + CSS3
 
 > Nota: Esta práctica no incluye backend ni base de datos.
